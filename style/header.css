@@ -1,0 +1,114 @@
+/* ---- TOPO DA PÁGINA ---- */
+/* Cabeçalho */
+header {
+    background-color: #ffffff;
+    height: 72px;
+    width: 100%;
+}
+
+/* Flex Container */
+.container {
+	max-width: 1230px;
+    height: 72px;
+	margin: 0 auto;
+	display: flex;
+    background-color: #ffffff;
+}
+
+/* Flex Item */
+.item {
+    display: flex;
+	background: #ffffff;
+    justify-content: center;
+    align-items: center;	
+}
+
+/* Botão Oculto do Menu */
+.oculto {
+    display: none;
+}
+
+/* Logo da Unity */
+.logo {
+    margin-right: 20px;
+}
+
+/* Opções do Menu */
+.opc {
+    font-size: 16px;
+    padding: 0 20px;
+    cursor: pointer;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Estilo do botão "Get started" */
+.botao {
+    background: white;
+    flex: 1; /*Ocupa espaço disponivel*/
+}
+
+.btn {
+    color: white;
+    background: #2196f3;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin-left: 16px;
+    padding: 11px 16px 11px 16px;
+    align-self: center;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bolder;
+}
+
+/* Estilo do botão dos icones */
+.icones {
+    max-width: 120px;
+    background:#ffffff;
+    flex: 1;
+    margin-left: 8px;
+}
+
+.icone {
+    padding: 0 8px;
+    color: rgb(117,117,117);
+    margin-top: 4px;
+}
+
+/* ---- CORPO DA PÁGINA ---- */
+/* Corpo */
+body {
+    overflow-y: scroll;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ff7575;
+}
+
+/* ---- RESPONSIVO ---- */
+@media screen and (max-width: 1040px) {
+    .opc{
+        display: none;
+    }
+    .botao{
+        display: none;
+    }
+    .container{
+        justify-content: space-between;
+    }
+    .oculto{
+        display: inline;
+        color: rgb(117,117,117);
+        padding: 10px 20px;
+    }
+    .logo {
+        margin-left: 15px;
+        margin-right: 0px;
+    }
+}   
+
+/* COLOCAR ICONE DO MOUSE E HOVER NAS LETRAS
+    DESENVOLVER DROPDOWN
+    DESENVOLVER CORPO DA PÁGINA
+*/
