@@ -161,3 +161,8 @@ p {
   z-index: 1;
   bottom: 1.875rem;
 }
+
+.main{
+  position: relative;
+  z-index: -1;
+}
