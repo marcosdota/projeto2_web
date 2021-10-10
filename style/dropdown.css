@@ -1,15 +1,2 @@
-/* Não consegui implementar*/
-.dropdown{
-    position: absolute;
-    width: 100%;
-    height: 338px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: blue;
-    display: none;
-    z-index: 0;
-}
-
-.dropdown-content:hover .dropdown {
-    display: block;
-  }
+/* Não conseguimos implementar
+Tentativa de Implementação em header.css */
