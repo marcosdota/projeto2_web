@@ -1,2 +1,19 @@
-/* Não conseguimos implementar
-Tentativa de Implementação em header.css */
+/* Não conseguimos implementar - Não funcionou */
+
+.dropdown{
+    position: absolute;
+    width: 100%;
+    height: 338px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: blue;
+    display: none;
+    z-index: 0;
+  }
+
+  .opc:hover + .dropdown {
+    color: aqua;
+    display: block !important;
+  }
+  /* https://www.w3schools.com/howto/howto_css_display_element_hover.asp */
+  /* https://www.w3schools.com/css/css_combinators.asp */
