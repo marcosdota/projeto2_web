@@ -4,17 +4,16 @@ Projeto 1 - AS34A - Programação Web - N14 (2021_02)
 # Site unity.com
 
 Clone da página inicial do site unity [(Link)](https://unity.com/)
-Link host: ---
 
 ## Capturas de Tela 27/09/2021
 
-![Captura Desktop](./capturas/Captura_de_tela_2021-09-27_-_ 16.28.58.png)
-![Captura Mobile](./capturas/Unity_27_09_2021.png)
+![Captura Desktop](./capturas/captura_tela.png)
+![Captura Mobile](./capturas/captura_tela_m.png)
 
 ## Capturas Resultados
 
-![Captura Desktop](./capturas/Captura_resultado_2021-10-15.png)
-![Captura Mobile](./capturas/Captura_resultado_2021-10-15 - 15.32.35.png)
+![Captura Desktop](./capturas/captura_resultado.png)
+![Captura Mobile](./capturas/captura_resultado_m.png)
 
 # Autores
 [Daniel Amaral Augusto](https://github.com/dnlaug)
