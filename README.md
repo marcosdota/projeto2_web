@@ -12,7 +12,7 @@ Clone da página inicial do site unity [(Link)](https://unity.com/)
 
 ## Capturas Resultados
 
-![Captura Desktop](./capturas/captura_resultado.png)
+![Captura Desktop](./capturas/captura_resultado.PNG)
 ![Captura Mobile](./capturas/captura_resultado_m.png)
 
 # Autores
