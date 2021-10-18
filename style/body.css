@@ -8,12 +8,13 @@ body {
 }
 
 .inicio {
+  background-image: url('../img/background-web.webp');
   padding-top: 65px;
   padding-bottom: 30px;
   position: relative;
   text-align: left;
   color: #fff;
-  background: #000 50% 70% no-repeat;
+  /*background: #000 50% 70% no-repeat;*/
   /* background-size: cover; */
   overflow: hidden;
 }
@@ -144,6 +145,7 @@ p {
 }
 
 .fab {
+  background-image: url('../img/indice.svg');
   left: 20px;
   position: fixed;
   height: 50px;
