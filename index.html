@@ -10,7 +10,10 @@
   <link rel="stylesheet" type="text/css" href="style/header.css" />
   <link rel="stylesheet" type="text/css" href="style/body.css" />
   <link rel="stylesheet" type="text/css" href="style/media.css" />
-  <!-- <link rel="stylesheet" type="text/css" href="style/dropdown.css" /> -->
+  <link rel="stylesheet" type="text/css" href="style/login.css" />
+  <link rel="stylesheet" type="text/css" href="style/search.css" />
+  <!-- AXIOS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -47,9 +50,8 @@
       </div>
     </header>
   </div>
-  <!-- <div class="dropdown"></div> -->
   <div class="main">
-    <section class="inicio">
+    <section class="inicio" style="background-image: url('img/background-web.webp');">
       <div class="descricao">
         <div class="linha">
           <div class="coluna">
@@ -81,8 +83,41 @@
         <h2 class="ultimo">Real-time solutions, endless opportunities</h2>
       </div>
     </section>
-    <div class="fab"></div>
+    <div class="fab" style="background-image: url('img/indice.svg');"></div>
   </div>
+
+  <!-- Login de Usuários -->
+  <div class="login">
+    <div class="caixaLogin">
+      <label for="email1">Email:</label>
+      <input type="email" id="email" name="email" />
+      <div class="campoEmail"></div>
+    </div>
+    <div class="caixaLogin">
+      <label for="senha1">Senha:</label>
+      <input type="password" id="password" name="password" />
+      <div class="campoPassword"></div>
+    </div>
+    <button class="btnLogar">Logar</button>
+  </div>
+
+  <!-- Usuário Logado -->
+  <div class="logadooculto">
+    <div class="caixaLogado">
+    </div>
+    <button class="btnDeslogar">Sair</button>
+    <br>
+    <input type="text" id="pesquisa" name="pesquisa" />
+    <button class="btnPesquisar">Pesquisar</button>
+    <div class="campoPesquisa"></div>
+  </div>
+
+  <!--Busca-->
+  <div class="containerBusca">
+  </div>
+
+  <!-- JS -> Login -->
+  <script src="js/login.js"></script>
 </body>
 
 </html>

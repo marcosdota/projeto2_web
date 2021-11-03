@@ -1,0 +1,18 @@
+.containerBusca{
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 50px;
+    height: auto;
+    background-color: red;
+}
+
+.busca{
+    width: 50%;
+    height: 206px;
+    background-color:yellow;
+}
+
+.campoPesquisa{
+    background-color:#87f321;
+    width: 100%;
+}
