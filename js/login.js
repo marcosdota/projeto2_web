@@ -117,3 +117,76 @@ document.querySelector(".btnDeslogar").addEventListener("click", function () {
 });
 
 logado();
+
+/*####################### BUSCA DE DADOS #######################*/
+//Ao carregar - Jogos para plataforma Browser e por data de lançamento
+//Uso de CORS 
+function busca() {
+    const options = {
+        method: 'GET',
+        url: 'https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser&sort-by=release-date',
+        headers: {
+            'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
+            'x-rapidapi-key': 'd21a46ef36msh3af066e5a56a00ap161d30jsn7eb6d306ef4c'
+        }
+    };
+    axios.request(options).then(function (response) {
+        var docs = response.data;
+        console.log(docs);
+        var container = document.querySelector(".containerBusca");
+        //Limpar Container
+        container.innerHTML = "";
+        //OBSERVAÇÃO: Limitando a 10 no momento: && i < 10
+        for (let i = 0; i < docs.length && i < 10; i++) {
+            //console.log(docs[i].developer);
+            var div = document.createElement("div");
+            div.classList.add('busca');
+            div.innerHTML = docs[i].title;
+            var img = document.createElement("img");
+            img.src = docs[i].thumbnail;
+            container.appendChild(div);
+            container.appendChild(img);
+        }
+    }).catch(function (error) {
+        console.error(error);
+    });
+}
+
+
+/*
+Possiveis categorias: mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts 
+*/
+document.querySelector(".btnPesquisar").addEventListener("click", function () {
+    var container = document.querySelector(".containerBusca");
+    container.innerHTML = "";
+    categoria = document.querySelector("#pesquisa").value;;
+    const options = {
+        method: 'GET',
+        url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
+        params: { category: categoria },
+        headers: {
+            'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
+            'x-rapidapi-key': 'd21a46ef36msh3af066e5a56a00ap161d30jsn7eb6d306ef4c'
+        }
+    };
+    axios.request(options).then(function (response) {
+        var docs = response.data;
+        console.log(docs);
+        var container = document.querySelector(".containerBusca");
+        //Limpar Container
+        container.innerHTML = "";
+        //OBSERVAÇÃO: Limitando a 10 no momento: && i < 10
+        for (let i = 0; i < docs.length && i < 10; i++) {
+            //console.log(docs[i].developer);
+            var div = document.createElement("div");
+            div.classList.add('busca');
+            div.innerHTML = docs[i].title;
+            var img = document.createElement("img");
+            img.src = docs[i].thumbnail;
+            container.appendChild(div);
+            container.appendChild(img);
+        }
+    }).catch(function (error) {
+        console.error(error);
+    });
+});
