@@ -1,5 +1,17 @@
 /* ---- RESPONSIVO ---- */
+@media only screen and (max-width: 1920px) {
+  .containerBusca {
+    width: 70%;
+  }
 
+  .containerBusca img {
+    width: 60%;
+  }
+
+  .pesquisar input {
+    width: 300px;
+  }
+}
 @media only screen and (max-width: 1260px) {
   .container {
     max-width: 978px;
@@ -22,6 +34,12 @@
   .anuncio,
   .final {
     max-width: 978px;
+  }
+  .containerBusca {
+    width: 70%;
+  }
+  .containerBusca img {
+    width: 60%;
   }
 }
 
@@ -116,6 +134,14 @@
   .final h2 {
     font-size: 2rem;
   }
+
+  .containerBusca {
+    width: 100%;
+  }
+
+  .containerBusca img {
+    width: 60%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -197,5 +223,33 @@
     display: block;
     margin-right: 0;
     margin-bottom: 20px;
+  }
+
+  .containerBusca {
+    width: 100%;
+  }
+
+  .desc {
+    font-size: 0.75rem;
+  }
+
+  .final .informa h2 {
+    font-size: 2rem;
+  }
+
+  .informa h3 {
+    font-size: 0.75rem;
+  }
+
+  .linha_final .containerBusca h2 {
+    font-size: 1.5rem;
+  }
+
+  .containerBusca img {
+    width: 80%;
+  }
+
+  .pesquisar input {
+    width: 200px;
   }
 }
