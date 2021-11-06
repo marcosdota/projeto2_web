@@ -6,23 +6,23 @@ document.querySelector(".btnLogar").addEventListener("click", function () {
   var wrapper;
   //Reverifica se email e senha são válidos!
   if (email.length < 3) {
-    alert("Email Inválido");
+    //alert("Email Inválido");
     wrapper = document.querySelector(".avisoEmail");
     wrapper.innerHTML = "";
-    wrapper.innerHTML = "⚠ Email inválido!";
+    wrapper.innerHTML = "⚠ Email inválido! (>=3 caracteres)";
     return;
   }
   if (senha.length < 3) {
-    alert("Senha Inválida");
+    //alert("Senha Inválida");
     wrapper = document.querySelector(".avisoPassword");
     wrapper.innerHTML = "";
-    wrapper.innerHTML = "⚠ Senha inválida!";
+    wrapper.innerHTML = "⚠ Senha inválida! (>=3 caracteres)";
     return;
   }
   //Verifica se alguem está logado
   if (sessionStorage.getItem("login") == 1) return;
 
-  console.log(senha);
+  //console.log(senha);
   //Login
   axios
     .post("https://reqres.in/api/login", {
@@ -30,18 +30,23 @@ document.querySelector(".btnLogar").addEventListener("click", function () {
       password: senha,
     })
     .then(function (response) {
-      console.log(response);
+      //console.log(response);
       if (response.status == 200) {
         loginRealizado(email);
         busca();
       }
     })
     .catch(function (error) {
-      alert("Login não realizado! Verifique os dados de acesso!");
+      //alert("Login não realizado! Verifique os dados de acesso!");
+      wrapper = document.querySelector(".avisoEmail");
+      wrapper.innerHTML = "";
+      wrapper.innerHTML = "⚠ Email inválido! - Login falhou!";
+      wrapper = document.querySelector(".avisoPassword");
+      wrapper.innerHTML = "";
     });
 });
 
-//Verifica se o campo Email tem menos de 3 caracteres
+//Verifica se o campo Email tem menos de 3 caracteres - tempo real
 document.getElementById("email").addEventListener(
   "keyup",
   (event) => {
@@ -54,7 +59,7 @@ document.getElementById("email").addEventListener(
   false
 );
 
-//Verifica se o campo Senha tem menos de 3 caracteres
+//Verifica se o campo Senha tem menos de 3 caracteres - tempo real
 document.getElementById("password").addEventListener(
   "keyup",
   (event) => {
@@ -78,6 +83,9 @@ function loginRealizado(email) {
   ctr = document.querySelector(".caixaLogado");
   ctr.innerHTML = "";
   ctr.innerHTML = "Olá, " + email;
+  //Adiciona sessão de Busca
+  ctr = document.querySelector(".pesquisaroculto");
+  ctr.className = ctr.className.replace("pesquisaroculto", "pesquisar");
   //Salva sessionStorage
   sessionStorage.setItem("login", 1);
   sessionStorage.setItem("email", email);
@@ -95,15 +103,13 @@ function logado() {
     ctr = document.querySelector(".caixaLogado");
     ctr.innerHTML = "";
     ctr.innerHTML = "Olá, " + sessionStorage.getItem("email");
-
-    // AJUSTAR - HORA FUNCIONA HORA NAO
     ctr = document.querySelector(".pesquisaroculto");
     ctr.className = ctr.className.replace("pesquisaroculto", "pesquisar");
     busca();
   }
 }
 
-//Desloga e retorna a página no modelo de inicio
+//Desloga e retorna a página no design de inicio
 function deslogou() {
   sessionStorage.clear();
   //Adiciona sessão de Login
@@ -116,10 +122,20 @@ function deslogou() {
   ctr.innerHTML = "";
   ctr = document.querySelector(".containerBusca");
   ctr.innerHTML = "";
-
-  // AJUSTAR - HORA FUNCIONA HORA NAO
+  //Remove sessão de busca
   ctr = document.querySelector(".pesquisar");
   ctr.className = ctr.className.replace("pesquisar", "pesquisaroculto");
+  //Remove email e senha do "formulario"
+  ctr = document.querySelector("#email");
+  ctr.value = "";
+  ctr = document.querySelector("#password");
+  ctr.value = "";
+  ctr = document.querySelector(".avisoEmail");
+  ctr.innerHTML = "";
+  ctr = document.querySelector(".avisoPassword");
+  ctr.innerHTML = "";
+  ctr = document.querySelector("#pesquisa");
+  ctr.value = "";
 }
 
 //Botão Deslogar
@@ -127,6 +143,7 @@ document.querySelector(".btnDeslogar").addEventListener("click", function () {
   deslogou();
 });
 
+//Ao iniciar a página, verifica se logou!
 logado();
 
 /*####################### BUSCA DE DADOS #######################*/
@@ -145,7 +162,7 @@ function busca() {
     .request(options)
     .then(function (response) {
       var docs = response.data;
-      console.log(docs);
+      //console.log(docs);
       var container = document.querySelector(".containerBusca");
       //Limpar Container
       container.innerHTML = "";
@@ -190,7 +207,7 @@ document.querySelector(".btnPesquisar").addEventListener("click", function () {
     .request(options)
     .then(function (response) {
       var docs = response.data;
-      console.log(docs);
+      //console.log(docs);
       var container = document.querySelector(".containerBusca");
       //Limpar Container
       container.innerHTML = "";
