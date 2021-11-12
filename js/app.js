@@ -20,7 +20,7 @@ document.querySelector(".btnLogar").addEventListener("click", function () {
     return;
   }
   //Verifica se alguem está logado
-  if (sessionStorage.getItem("login") == 1) return;
+  if (sessionStorage.getItem("login") == 1 && sessionStorage.getItem("token")) return;
 
   //console.log(senha);
   //Login
@@ -30,9 +30,10 @@ document.querySelector(".btnLogar").addEventListener("click", function () {
       password: senha,
     })
     .then(function (response) {
-      //console.log(response);
+      console.log(response);
       if (response.status == 200) {
-        loginRealizado(email);
+        //Salva o email e token de acesso
+        loginRealizado(email, response.data.token);
         busca();
       }
     })
@@ -72,8 +73,8 @@ document.getElementById("password").addEventListener(
   false
 );
 
-// sessionStorage -> Salva Login
-function loginRealizado(email) {
+// sessionStorage -> Salva Login e Token
+function loginRealizado(email, token) {
   //Remove sessão de Login
   var ctr = document.querySelector(".login");
   ctr.className = ctr.className.replace("login", "loginoculto");
@@ -89,11 +90,12 @@ function loginRealizado(email) {
   //Salva sessionStorage
   sessionStorage.setItem("login", 1);
   sessionStorage.setItem("email", email);
+  sessionStorage.setItem("token", token);
 }
 
 //Verifica se existe alguem logado ao iniciar página
 function logado() {
-  if (sessionStorage.getItem("login") == 1) {
+  if (sessionStorage.getItem("login") == 1 && sessionStorage.getItem("token")) {
     //Remove sessão de Login
     var ctr = document.querySelector(".login");
     ctr.className = ctr.className.replace("login", "loginoculto");
@@ -187,8 +189,10 @@ function busca() {
     });
 }
 
+/*####################### BUSCA DE DADOS COM PARÂMETRO: categoria #######################*/
 /*
 Possiveis categorias: mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts 
+O usuário digita a categoria na barra de pesquisa, e a função retorna os resultados equivalentes da API!
 */
 document.querySelector(".btnPesquisar").addEventListener("click", function () {
   var container = document.querySelector(".containerBusca");
